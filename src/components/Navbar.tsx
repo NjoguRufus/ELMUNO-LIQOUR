@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 export const Navbar = () => {
   const { cart, user } = useStore();
-  
+
   return (
     <motion.nav 
       initial={{ y: -100 }}
@@ -16,20 +16,23 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
           <Wine className="h-8 w-8 text-amber-500" />
-          <span className="text-xl font-bold">Spirit Haven</span>
+          <span className="text-xl font-bold">ELMUNO LIQUOR</span>
         </Link>
         
-        <div className="flex items-center space-x-8">
-          <Link to="/whiskey" className="hover:text-amber-500 transition-colors">
-            Whiskey
-          </Link>
-          <Link to="/beer" className="hover:text-amber-500 transition-colors">
-            Beer
-          </Link>
-          <Link to="/makali" className="hover:text-amber-500 transition-colors">
-            Makali
-          </Link>
-        </div>
+        {/* Conditionally render the product links only if user is logged in */}
+        {user && (
+          <div className="flex items-center space-x-8">
+            <Link to="/whiskey" className="hover:text-amber-500 transition-colors">
+              Whiskey
+            </Link>
+            <Link to="/beer" className="hover:text-amber-500 transition-colors">
+              Beer
+            </Link>
+            <Link to="/makali" className="hover:text-amber-500 transition-colors">
+              Makali
+            </Link>
+          </div>
+        )}
 
         <div className="flex items-center space-x-6">
           <Link to="/cart" className="relative">

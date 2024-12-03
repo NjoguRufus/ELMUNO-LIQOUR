@@ -1,24 +1,52 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
 import { AlertCircle } from 'lucide-react';
+import { useAuth } from '../hooks/useAuth';
 
 export const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { signup, error } = useAuth();
+  const [error, setError] = useState<string | null>(null);
+  const { signup } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(null);
+
+    // Validate fields
+    if (!email || !password || !name) {
+      setError('All fields are required.');
+      setIsLoading(false);
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError('Invalid email format.');
+      setIsLoading(false);
+      return;
+    }
+
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long.');
+      setIsLoading(false);
+      return;
+    }
+
     try {
+      console.log('Signing up with:', { email, password, name });
       await signup(email, password, name);
-      navigate('/');
-    } catch (err) {
+
+      setIsLoading(false);
+      navigate('/'); // Redirect to home page
+    } catch (err: any) {
+      console.error('Signup Error:', err);
+      setError(err.message || 'Failed to create account');
       setIsLoading(false);
     }
   };
