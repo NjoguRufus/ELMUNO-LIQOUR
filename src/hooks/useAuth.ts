@@ -43,7 +43,14 @@ export const useAuth = () => {
         name
       });
     } catch (err) {
-      setError((err as Error).message);
+      const errorMessage = (err as Error).message;
+      setError(
+        errorMessage.includes('auth/email-already-in-use')
+          ? 'This email is already registered.'
+          : errorMessage.includes('auth/weak-password')
+          ? 'Password should be at least 6 characters.'
+          : 'An error occurred during signup.'
+      );
       throw err;
     }
   };
@@ -58,7 +65,12 @@ export const useAuth = () => {
         name: user.displayName || user.email!.split('@')[0]
       });
     } catch (err) {
-      setError((err as Error).message);
+      const errorMessage = (err as Error).message;
+      setError(
+        errorMessage.includes('auth/invalid-credential')
+          ? 'Invalid email or password.'
+          : 'An error occurred during login.'
+      );
       throw err;
     }
   };
