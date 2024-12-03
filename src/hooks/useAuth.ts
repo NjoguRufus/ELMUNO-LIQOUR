@@ -4,11 +4,12 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  updateProfile,
-  User as FirebaseUser
+  updateProfile
 } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 import { useStore } from '../store/useStore';
+import { validateCredentials } from '../utils/validation';
+import { getAuthErrorMessage } from '../utils/errorHandling';
 
 export const useAuth = () => {
   const [loading, setLoading] = useState(true);
@@ -35,29 +36,30 @@ export const useAuth = () => {
   const signup = async (email: string, password: string, name: string) => {
     try {
       setError(null);
+      validateCredentials(email, password);
+      
       const { user } = await createUserWithEmailAndPassword(auth, email, password);
-      await updateProfile(user, { displayName: name });
-      setUser({
-        id: user.uid,
-        email: user.email!,
-        name
-      });
+      
+      if (user) {
+        await updateProfile(user, { displayName: name });
+        setUser({
+          id: user.uid,
+          email: user.email!,
+          name
+        });
+      }
     } catch (err) {
-      const errorMessage = (err as Error).message;
-      setError(
-        errorMessage.includes('auth/email-already-in-use')
-          ? 'This email is already registered.'
-          : errorMessage.includes('auth/weak-password')
-          ? 'Password should be at least 6 characters.'
-          : 'An error occurred during signup.'
-      );
-      throw err;
+      const errorMessage = getAuthErrorMessage(err);
+      setError(errorMessage);
+      throw new Error(errorMessage);
     }
   };
 
   const login = async (email: string, password: string) => {
     try {
       setError(null);
+      validateCredentials(email, password);
+      
       const { user } = await signInWithEmailAndPassword(auth, email, password);
       setUser({
         id: user.uid,
@@ -65,13 +67,9 @@ export const useAuth = () => {
         name: user.displayName || user.email!.split('@')[0]
       });
     } catch (err) {
-      const errorMessage = (err as Error).message;
-      setError(
-        errorMessage.includes('auth/invalid-credential')
-          ? 'Invalid email or password.'
-          : 'An error occurred during login.'
-      );
-      throw err;
+      const errorMessage = getAuthErrorMessage(err);
+      setError(errorMessage);
+      throw new Error(errorMessage);
     }
   };
 
@@ -80,8 +78,9 @@ export const useAuth = () => {
       await signOut(auth);
       setUser(null);
     } catch (err) {
-      setError((err as Error).message);
-      throw err;
+      const errorMessage = getAuthErrorMessage(err);
+      setError(errorMessage);
+      throw new Error(errorMessage);
     }
   };
 
