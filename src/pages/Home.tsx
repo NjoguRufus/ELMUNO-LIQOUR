@@ -31,12 +31,12 @@ export const Home = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative h-[600px] bg-gradient-to-b from-black/70 to-transparent"
+              className="relative h-screen bg-gradient-to-b from-black/70 to-transparent"
             >
               <img
                 src="https://images.unsplash.com/photo-1597290282695-edc43d0e7129?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
                 alt="Hero"
-                className="w-full h-full object-cover rounded-lg"
+                className="w-full h-full object-cover absolute top-0 left-0"
               />
               <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                 <div className="text-center text-white px-4">
