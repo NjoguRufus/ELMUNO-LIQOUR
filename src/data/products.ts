@@ -275,140 +275,140 @@ export const products: Product[] = [
     alcohol: 5
   },
 
-  // Makali Category
+  // Whine Category
   {
     id: 'm1',
-    name: 'Traditional Makali',
+    name: 'Traditional Whine',
     price: 15.99,
     description: 'Authentic traditional brew with rich flavors',
     image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 7
   },
   {
     id: 'm2',
-    name: 'Premium Makali Reserve',
+    name: 'Premium Whine Reserve',
     price: 24.99,
     description: 'Aged traditional brew with complex notes',
     image: 'https://images.unsplash.com/photo-1551451362-8c15a4cef475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 8
   },
   {
     id: 'm3',
-    name: 'Honey Makali',
+    name: 'Honey Whine',
     price: 19.99,
     description: 'Sweet traditional brew with honey',
     image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 6.5
   },
   {
     id: 'm4',
-    name: 'Vintage Makali',
+    name: 'Vintage Whine',
     price: 29.99,
-    description: 'Special reserve aged makali',
+    description: 'Special reserve aged Whine',
     image: 'https://images.unsplash.com/photo-1551451362-8c15a4cef475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 8.5
   },
   {
     id: 'm5',
-    name: 'Spiced Makali',
+    name: 'Spiced Whine',
     price: 21.99,
     description: 'Traditional brew with aromatic spices',
     image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 7.5
   },
   {
     id: 'm6',
-    name: 'Classic Makali',
+    name: 'Classic Whine',
     price: 17.99,
     description: 'Traditional recipe unchanged for generations',
     image: 'https://images.unsplash.com/photo-1551451362-8c15a4cef475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 7
   },
   {
     id: 'm7',
-    name: 'Royal Makali',
+    name: 'Royal Whine',
     price: 34.99,
     description: 'Premium blend for special occasions',
     image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 9
   },
   {
     id: 'm8',
-    name: 'Coconut Makali',
+    name: 'Coconut Whine',
     price: 22.99,
     description: 'Traditional brew with coconut essence',
     image: 'https://images.unsplash.com/photo-1551451362-8c15a4cef475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 6.5
   },
   {
     id: 'm9',
-    name: 'Heritage Makali',
+    name: 'Heritage Whine',
     price: 27.99,
     description: 'Ancient recipe with modern brewing',
     image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 8
   },
   {
     id: 'm10',
-    name: 'Artisanal Makali',
+    name: 'Artisanal Whine',
     price: 25.99,
     description: 'Small-batch crafted traditional brew',
     image: 'https://images.unsplash.com/photo-1551451362-8c15a4cef475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 7.5
   },
   {
     id: 'm11',
-    name: 'Golden Makali',
+    name: 'Golden Whine',
     price: 31.99,
     description: 'Premium golden-hued traditional brew',
     image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 8.5
   },
   {
     id: 'm12',
-    name: 'Reserve Makali',
+    name: 'Reserve Whine',
     price: 36.99,
     description: 'Limited edition traditional brew',
     image: 'https://images.unsplash.com/photo-1551451362-8c15a4cef475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 9.5
   },
   {
     id: 'm13',
-    name: 'Village Makali',
+    name: 'Village Whine',
     price: 18.99,
     description: 'Authentic village-style traditional brew',
     image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 6.5
   },
   {
     id: 'm14',
-    name: 'Celebration Makali',
+    name: 'Celebration Whine',
     price: 33.99,
     description: 'Special blend for festivities',
     image: 'https://images.unsplash.com/photo-1551451362-8c15a4cef475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 8.5
   },
   {
     id: 'm15',
-    name: 'Elder\'s Makali',
+    name: 'Elder\'s Whine',
     price: 28.99,
     description: 'Traditional recipe passed down by elders',
     image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    category: 'makali',
+    category: 'Whine',
     alcohol: 7.5
   }
 ];
