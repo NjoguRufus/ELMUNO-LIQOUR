@@ -16,7 +16,7 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
           <Wine className="h-8 w-8 text-amber-500" />
-          <span className="text-xl font-bold">Spirit Haven</span>
+          <span className="text-xl font-bold">ELMUNO LIQOUR</span>
         </Link>
         
         <div className="flex items-center space-x-8">
