@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { LogOut, ShoppingBag, User as UserIcon } from 'lucide-react';
+import { LogOut, ShoppingBag, User as UserIcon, Settings } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useAuth } from '../hooks/useAuth';
 
@@ -9,6 +9,7 @@ export const Profile = () => {
   const { user } = useStore();
   const { logout } = useAuth();
   const navigate = useNavigate();
+  const [showSettings, setShowSettings] = useState(false); // State to toggle settings modal
 
   if (!user) {
     navigate('/login');
@@ -22,6 +23,10 @@ export const Profile = () => {
     } catch (error) {
       console.error('Failed to logout:', error);
     }
+  };
+
+  const toggleSettings = () => {
+    setShowSettings(!showSettings);
   };
 
   return (
@@ -55,7 +60,7 @@ export const Profile = () => {
           <motion.div
             whileHover={{ scale: 1.02 }}
             className="bg-gray-50 p-6 rounded-lg cursor-pointer"
-            onClick={() => navigate('/settings')}
+            onClick={toggleSettings}
           >
             <UserIcon className="h-6 w-6 text-amber-500 mb-2" />
             <h2 className="text-lg font-semibold mb-2">Account Settings</h2>
@@ -71,6 +76,69 @@ export const Profile = () => {
           <span>Logout</span>
         </button>
       </motion.div>
+
+      {/* Modal for Account Settings */}
+      {showSettings && (
+        <motion.div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.div
+            className="bg-white rounded-lg shadow-lg p-8 w-full max-w-lg"
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.8 }}
+          >
+            <h2 className="text-2xl font-bold mb-6 text-center">Account Settings</h2>
+            <ul className="space-y-4">
+              <li className="flex items-center justify-between">
+                <span>Change Password</span>
+                <button
+                  className="text-amber-500 hover:text-amber-600 transition"
+                  onClick={() => alert('Navigate to Change Password')}
+                >
+                  Edit
+                </button>
+              </li>
+              <li className="flex items-center justify-between">
+                <span>Update Profile Picture</span>
+                <button
+                  className="text-amber-500 hover:text-amber-600 transition"
+                  onClick={() => alert('Navigate to Update Profile Picture')}
+                >
+                  Edit
+                </button>
+              </li>
+              <li className="flex items-center justify-between">
+                <span>Manage Notifications</span>
+                <button
+                  className="text-amber-500 hover:text-amber-600 transition"
+                  onClick={() => alert('Navigate to Manage Notifications')}
+                >
+                  Edit
+                </button>
+              </li>
+              <li className="flex items-center justify-between">
+                <span>Privacy Settings</span>
+                <button
+                  className="text-amber-500 hover:text-amber-600 transition"
+                  onClick={() => alert('Navigate to Privacy Settings')}
+                >
+                  Edit
+                </button>
+              </li>
+            </ul>
+            <button
+              onClick={toggleSettings}
+              className="mt-6 w-full bg-gray-100 text-gray-600 py-2 rounded-lg hover:bg-gray-200 transition"
+            >
+              Close
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
     </div>
   );
 };

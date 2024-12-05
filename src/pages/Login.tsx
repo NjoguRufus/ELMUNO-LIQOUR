@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { AlertCircle } from 'lucide-react';
+import { auth } from '../lib/firebase'; // Import Firebase auth
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -19,6 +21,16 @@ export const Login = () => {
       navigate('/');
     } catch (err) {
       setIsLoading(false);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      navigate('/'); // Navigate to the home page after successful login
+    } catch (error) {
+      console.error('Google Sign-In Error:', error);
     }
   };
 
@@ -69,6 +81,14 @@ export const Login = () => {
             {isLoading ? 'Logging in...' : 'Login'}
           </button>
         </form>
+        <div className="mt-4">
+          <button
+            onClick={handleGoogleSignIn}
+            className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors flex items-center justify-center gap-2"
+          >
+            Sign in with Google
+          </button>
+        </div>
         <p className="mt-4 text-center text-gray-600">
           Don't have an account?{' '}
           <Link to="/signup" className="text-amber-500 hover:text-amber-600">
