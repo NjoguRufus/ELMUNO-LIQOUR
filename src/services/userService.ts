@@ -1,6 +1,5 @@
 // src/services/userService.ts
 import { getDatabase, ref, get, set } from 'firebase/database';
-import { auth } from '../lib/firebase'; // Assuming Firebase is initialized in firebase.ts
 
 const db = getDatabase();
 
