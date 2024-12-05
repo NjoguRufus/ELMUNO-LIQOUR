@@ -115,7 +115,7 @@ export const CategoryPage = () => {
             animate={{ opacity: 1 }}
             className="text-center text-gray-500 mt-8"
           >
-            No products found matching your criteria.
+            No products found matching your criteria..
           </motion.p>
         )}
       </div>
