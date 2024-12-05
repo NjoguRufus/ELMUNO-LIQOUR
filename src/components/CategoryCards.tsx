@@ -8,19 +8,19 @@ const categories = [
     name: 'Whiskey',
     icon: Wine,
     color: 'from-amber-500 to-orange-600',
-    image: 'https://unsplash.com/photos/a-bowl-of-nuts-and-a-glass-of-whiskey-on-a-table-STFRIVqpVIg'
+    image: 'https://images.unsplash.com/photo-1582819770582-5678d4b3aadf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Beer',
     icon: Beer,
     color: 'from-yellow-400 to-orange-500',
-    image: 'https://unsplash.com/photos/heineken-beer-bottle-on-green-surface-mhad_4H6S14'
+    image: 'https://images.unsplash.com/photo-1535958636266-b0a29e3f74de?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
   },
   {
-    name: 'Wine',
+    name: 'Makali',
     icon: Coffee,
     color: 'from-green-400 to-teal-500',
-    image: 'https://unsplash.com/photos/two-people-clinking-with-glasses-of-red-wine-celebrating-success-or-speaking-toast-in-wine-restaurant-against-racks-with-wine-bottles-close-up-WswgnwA-HoE'
+    image: 'https://images.unsplash.com/photo-1551451362-8c15a4cef475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
   }
 ];
 
@@ -60,15 +60,9 @@ export const CategoryCards = () => {
             onClick={() => navigate(`/${category.name.toLowerCase()}`)}
             className="relative group cursor-pointer"
           >
-            <div
-              className="absolute inset-0 bg-gradient-to-r w-full h-full rounded-xl opacity-75 transition-opacity group-hover:opacity-90"
-              style={{
-                backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))`
-              }}
-            >
-              <div
-                className={`w-full h-full bg-gradient-to-r ${category.color} opacity-75 rounded-xl`}
-              />
+            <div className="absolute inset-0 bg-gradient-to-r w-full h-full rounded-xl opacity-75 transition-opacity group-hover:opacity-90"
+                 style={{ backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))` }}>
+              <div className={`w-full h-full bg-gradient-to-r ${category.color} opacity-75 rounded-xl`} />
             </div>
             <div className="relative bg-white rounded-xl shadow-xl overflow-hidden">
               <div className="h-48">
@@ -80,9 +74,7 @@ export const CategoryCards = () => {
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-bold text-gray-800">
-                    {category.name}
-                  </h3>
+                  <h3 className="text-xl font-bold text-gray-800">{category.name}</h3>
                   <Icon className="h-6 w-6 text-gray-600" />
                 </div>
                 <p className="mt-2 text-gray-600">

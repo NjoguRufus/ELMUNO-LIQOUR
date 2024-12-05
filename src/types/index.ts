@@ -4,7 +4,7 @@ export interface Product {
   price: number;
   description: string;
   image: string;
-  category: 'whiskey' | 'beer' | 'Wine';
+  category: 'whiskey' | 'beer' | 'makali';
   alcohol: number;
 }
 
@@ -16,4 +16,5 @@ export interface User {
   id: string;
   email: string;
   name: string;
+  photoUrl?: string;
 }
