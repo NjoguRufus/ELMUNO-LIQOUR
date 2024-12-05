@@ -54,7 +54,7 @@ export const Home = () => {
                     transition={{ delay: 0.3, duration: 0.6 }}
                     className="text-xl mb-8"
                   >
-                    Discover our premium collection of spirits
+                    Discover our premium collection of spiritss
                   </motion.p>
                   <motion.button
                     initial={{ y: 20, opacity: 0 }}

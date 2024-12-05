@@ -24,9 +24,9 @@ export const AboutUs = () => {
             className="space-y-6"
           >
             <p className="text-gray-600 leading-relaxed">
-              Welcome to Elmuno Liquor, your premier destination for fine spirits and beverages. 
+              Welcome to Elmuno Liquor, your premier destination for fine spiritss and beverages. 
               Since our establishment, we've been committed to providing our customers with the 
-              finest selection of whiskey, beer, and traditional makali.
+              finest selection of whiskey, beer, and traditional spirits.
             </p>
             <p className="text-gray-600 leading-relaxed">
               Our expert staff is passionate about helping you discover new favorites and 

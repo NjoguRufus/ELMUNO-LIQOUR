@@ -16,7 +16,7 @@ const categories = [
     image: 'https://images.unsplash.com/photo-1535958636266-b0a29e3f74de?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
   },
   {
-    name: 'Makali',
+    name: 'spirits',
     icon: Coffee,
     color: 'from-green-400 to-teal-500',
     image: 'https://images.unsplash.com/photo-1551451362-8c15a4cef475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
