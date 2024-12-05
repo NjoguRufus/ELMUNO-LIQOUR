@@ -50,22 +50,33 @@ export const ProfilePictureForm = ({ onClose, onSuccess }: ProfilePictureFormPro
       const currentUser = auth.currentUser;
       if (!currentUser) throw new Error('No user logged in');
 
-      // Upload the file
+      // Create a reference to the storage location
       const storageRef = ref(storage, `profile-pictures/${currentUser.uid}/${selectedFile.name}`);
+
+      // Upload the file
       const snapshot = await uploadBytes(storageRef, selectedFile);
 
       // Get the download URL
       const downloadURL = await getDownloadURL(snapshot.ref);
 
-      // Update Firebase Auth profile
-      await updateProfile(currentUser, { photoURL: downloadURL });
-      await currentUser.reload(); // Ensure the updated photoURL is available
-
-      // Update the application state
-      setUser({
-        ...user,
-        photoUrl: downloadURL, // Ensure this matches your store's property
+      // Update the user's profile with the new photo URL
+      await updateProfile(currentUser, {
+        photoURL: downloadURL,
       });
+
+      // Reload the user to ensure updates are applied
+      await currentUser.reload();
+
+      // Update the store with the new photo URL
+      setUser(
+        user
+          ? {
+              ...user,
+              photoUrl: downloadURL,
+              id: user.id || currentUser.uid, // Ensure `id` is defined
+            }
+          : null
+      );
 
       onSuccess();
     } catch (err) {
@@ -101,9 +112,7 @@ export const ProfilePictureForm = ({ onClose, onSuccess }: ProfilePictureFormPro
         </label>
       </div>
 
-      {error && (
-        <p className="text-red-500 text-sm text-center">{error}</p>
-      )}
+      {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
       <div className="flex justify-end space-x-3">
         <button
