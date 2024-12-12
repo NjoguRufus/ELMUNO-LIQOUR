@@ -20,12 +20,14 @@ export const Navbar = () => {
           <span className="text-xl font-bold">ELMUNO LIQOUR</span>
         </Link>
 
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden block text-white focus:outline-none"
-        >
-          <Menu className="h-6 w-6" />
-        </button>
+        {user && (
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden block text-white focus:outline-none"
+          >
+            <Menu className="h-6 w-6" />
+          </button>
+        )}
 
         <div className={`lg:flex ${isMenuOpen ? 'block' : 'hidden'} absolute lg:static top-16 left-0 w-full lg:w-auto bg-zinc-900 lg:bg-transparent z-40 lg:z-auto`}>          
           <div className="lg:flex items-center lg:space-x-8 space-y-2 lg:space-y-0 px-6 lg:px-0">
