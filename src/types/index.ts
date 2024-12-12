@@ -4,7 +4,7 @@ export interface Product {
   price: number;
   description: string;
   image: string;
-  category: 'whiskey' | 'beer' | 'spirits';
+  category: 'whiskey' | 'beer' |'spirits'| 'gin' | 'vodka' | 'Wine' | 'tequila';
   alcohol: number;
 }
 

@@ -39,7 +39,7 @@ export const Cart = () => {
               />
               <div className="flex-1">
                 <h3 className="font-semibold">{item.name}</h3>
-                <p className="text-gray-600">${item.price}</p>
+                <p className="text-gray-600">ksh{item.price}</p>
               </div>
               <div className="flex items-center gap-2">
                 <button
@@ -68,7 +68,7 @@ export const Cart = () => {
           <div className="mt-8 bg-white p-6 rounded-lg shadow">
             <div className="flex justify-between text-xl font-bold mb-4">
               <span>Total:</span>
-              <span>${total.toFixed(2)}</span>
+              <span>ksh{total.toFixed(2)}</span>
             </div>
             <button className="w-full bg-amber-500 text-white py-3 rounded-lg hover:bg-amber-600 transition-colors">
               Proceed to Checkout

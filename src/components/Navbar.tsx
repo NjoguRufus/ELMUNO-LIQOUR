@@ -29,8 +29,24 @@ export const Navbar = () => {
             <Link to="/spirits" className="hover:text-amber-500 transition-colors">
               Spirits
             </Link>
+            <Link to="/gin" className="hover:text-amber-500 transition-colors">
+              Gin
+            </Link>
+            <Link to="/vodka" className="hover:text-amber-500 transition-colors">
+              Vodka
+            </Link>
+            <Link to="/Wine" className="hover:text-amber-500 transition-colors">
+              Wine
+            </Link>
+            <Link to="/tequila" className="hover:text-amber-500 transition-colors">
+            Tequila
+            </Link>
           </div>
         )}
+
+        <div className="flex items-center space-x-6">
+          </div>
+        
 
         <div className="flex items-center space-x-6">
           {user && (

@@ -30,7 +30,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           Alcohol content: {product.alcohol}%
         </div>
         <div className="mt-4 flex items-center justify-between">
-          <span className="text-xl font-bold">${product.price}</span>
+          <span className="text-xl font-bold">ksh{product.price}</span>
           <button
             onClick={() => addToCart({ ...product, quantity: 1 })}
             className="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
