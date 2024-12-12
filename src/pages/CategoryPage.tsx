@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { SearchBar } from '../components/SearchBar';
 import { ProductGrid } from '../components/ProductGrid';
@@ -9,7 +9,7 @@ import { Filter } from 'lucide-react';
 export const CategoryPage = () => {
   const { category } = useParams<{ category: string }>();
   const [searchQuery, setSearchQuery] = useState('');
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, Math.max(...products.map((p) => p.price))]);
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState<'price-asc' | 'price-desc' | 'name' | 'alcohol'>('name');
 
