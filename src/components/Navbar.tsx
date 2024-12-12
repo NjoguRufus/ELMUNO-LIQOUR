@@ -1,11 +1,13 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, User, Wine } from 'lucide-react';
+import { Wine, Martini, FlaskConical, Droplet, Glasses, Beer, ShoppingCart, User, Menu } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { motion } from 'framer-motion';
 
 export const Navbar = () => {
   const { cart, user } = useStore();
-  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <motion.nav 
       initial={{ y: -100 }}
@@ -17,36 +19,46 @@ export const Navbar = () => {
           <Wine className="h-8 w-8 text-amber-500" />
           <span className="text-xl font-bold">ELMUNO LIQOUR</span>
         </Link>
-        
-        {user && (
-          <div className="flex items-center space-x-8">
-            <Link to="/whiskey" className="hover:text-amber-500 transition-colors">
-              Whiskey
-            </Link>
-            <Link to="/beer" className="hover:text-amber-500 transition-colors">
-              Beer
-            </Link>
-            <Link to="/spirits" className="hover:text-amber-500 transition-colors">
-              Spirits
-            </Link>
-            <Link to="/gin" className="hover:text-amber-500 transition-colors">
-              Gin
-            </Link>
-            <Link to="/vodka" className="hover:text-amber-500 transition-colors">
-              Vodka
-            </Link>
-            <Link to="/Wine" className="hover:text-amber-500 transition-colors">
-              Wine
-            </Link>
-            <Link to="/tequila" className="hover:text-amber-500 transition-colors">
-            Tequila
-            </Link>
-          </div>
-        )}
 
-        <div className="flex items-center space-x-6">
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="lg:hidden block text-white focus:outline-none"
+        >
+          <Menu className="h-6 w-6" />
+        </button>
+
+        <div className={`lg:flex ${isMenuOpen ? 'block' : 'hidden'} absolute lg:static top-16 left-0 w-full lg:w-auto bg-zinc-900 lg:bg-transparent z-40 lg:z-auto`}>          
+          <div className="lg:flex items-center lg:space-x-8 space-y-2 lg:space-y-0 px-6 lg:px-0">
+            <Link to="/whiskey" className="block lg:inline flex items-center space-x-2 hover:text-amber-500 transition-colors">
+              {isMenuOpen && <Glasses className="h-5 w-5" />}
+              <span>Whiskey</span>
+            </Link>
+            <Link to="/beer" className="block lg:inline flex items-center space-x-2 hover:text-amber-500 transition-colors">
+              {isMenuOpen && <Beer className="h-5 w-5" />}
+              <span>Beer</span>
+            </Link>
+            <Link to="/spirits" className="block lg:inline flex items-center space-x-2 hover:text-amber-500 transition-colors">
+              {isMenuOpen && <Martini className="h-5 w-5" />}
+              <span>Spirits</span>
+            </Link>
+            <Link to="/gin" className="block lg:inline flex items-center space-x-2 hover:text-amber-500 transition-colors">
+              {isMenuOpen && <FlaskConical className="h-5 w-5" />}
+              <span>Gin</span>
+            </Link>
+            <Link to="/vodka" className="block lg:inline flex items-center space-x-2 hover:text-amber-500 transition-colors">
+              {isMenuOpen && <Droplet className="h-5 w-5" />}
+              <span>Vodka</span>
+            </Link>
+            <Link to="/wine" className="block lg:inline flex items-center space-x-2 hover:text-amber-500 transition-colors">
+              {isMenuOpen && <Wine className="h-5 w-5" />}
+              <span>Wine</span>
+            </Link>
+            <Link to="/tequila" className="block lg:inline flex items-center space-x-2 hover:text-amber-500 transition-colors">
+              {isMenuOpen && <Droplet className="h-5 w-5" />}
+              <span>Tequila</span>
+            </Link>
           </div>
-        
+        </div>
 
         <div className="flex items-center space-x-6">
           {user && (
@@ -59,7 +71,7 @@ export const Navbar = () => {
               )}
             </Link>
           )}
-          
+
           {user ? (
             <Link to="/profile">
               <User className="h-6 w-6 hover:text-amber-500 transition-colors" />
